@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to bottom, #FFA500, #FFFF00); / Начальный фон /
+      background: linear-gradient(to bottom, #FFA500, #FFFF00); / Начальный градиент /
       font-family: sans-serif;
       color: #333;
       display: flex;
@@ -21,25 +21,27 @@
 
     / ... (остальной CSS) ... /
 
-    .theme-button {
-      position: absolute; / Позиционируем кнопку относительно body /
-      top: 20px; / Отступ сверху /
-      right: 20px; / Отступ справа /
+    .change-bg-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
       padding: 10px 20px;
       border-radius: 5px;
       background-color: #fff;
       color: #333;
-      border: none;
+      border: 1px solid #ccc;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
 
-    .theme-button:hover {
+    .change-bg-button:hover {
       background-color: #ddd;
     }
   </style>
 </head>
 <body>
-  <button class="theme-button">Сменить фон</button>
+
+  <button class="change-bg-button">Сменить фон</button>
 
   <h1>DAPICOMBAT</h1>
 
@@ -57,20 +59,20 @@
   </div>
 
   <script>
-    // ... (предыдущий JavaScript код) ...
+    // ... (JavaScript для кликера) ...
 
-    const themeButton = document.querySelector('.theme-button');
-    let currentTheme = 'orange'; // Начальный фон - оранжевый
+    const changeBgButton = document.querySelector('.change-bg-button');
+    let isGreenBlue = false; // Флаг, отслеживающий текущий цвет фона
 
-    themeButton.addEventListener('click', () => {
-      if (currentTheme === 'orange') {
-        document.body.style.background = 'linear-gradient(to bottom, #007bff, #00b050)'; // Синий и зеленый
-        currentTheme = 'blue';
-        themeButton.textContent = 'Вернуть оранжевый';
+    changeBgButton.addEventListener('click', () => {
+      if (isGreenBlue) {
+        document.body.style.background = 'linear-gradient(to bottom, #FFA500, #FFFF00)'; // Вернуть оранжево-желтый градиент
+        isGreenBlue = false;
+        changeBgButton.textContent = 'Сменить фон'; 
       } else {
-        document.body.style.background = 'linear-gradient(to bottom, #FFA500, #FFFF00)'; // Оранжевый и желтый
-        currentTheme = 'orange';
-        themeButton.textContent = 'Сменить фон';
+        document.body.style.background = 'linear-gradient(to bottom, #007bff, #00c957)'; // Сменить на сине-зеленый градиент
+        isGreenBlue = true;
+        changeBgButton.textContent = 'Вернуть фон'; 
       }
     });
   </script>
