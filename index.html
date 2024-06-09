@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -18,23 +19,43 @@
     }
 
     h1 {
-      font-size: 4em;
+      font-size: 2.5em; / Уменьшаем размер заголовка /
       margin-bottom: 20px;
     }
 
     p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+      font-size: 1.1em; / Уменьшаем размер текста /
+      text-align: center; / Выравнивание текста по центру /
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 800px; / Ограничиваем ширину контента /
+      margin: 0 auto; / Центрируем контент /
+      padding: 20px;
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .telegram-button,
+    .github-button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
     .telegram-button {
-      display: inline-block;
-      padding: 10px 20px;
       background-color: #2CA5E0;
       color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
 
     .telegram-button:hover {
@@ -42,13 +63,8 @@
     }
 
     .github-button {
-      display: inline-block;
-      padding: 10px 20px;
       background-color: #222;
       color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
 
     .github-button:hover {
@@ -56,7 +72,8 @@
     }
 
     .clicker-area {
-      width: 300px;
+      width: 100%; / Ширина на всю доступную область /
+      max-width: 300px; / Ограничиваем максимальную ширину /
       height: 300px;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 15px;
@@ -68,8 +85,9 @@
     }
 
     .clicker-button {
-      width: 100px;
-      height: 100px;
+      width: 100%; / Ширина на всю доступную область /
+      max-width: 200px; / Ограничиваем максимальную ширину /
+      height: 200px;
       background-image: url('button.jpg');
       background-size: cover;
       border: none;
@@ -89,20 +107,21 @@
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>DAPICOMBAT</h1>
 
-  <h1>DAPICOMBAT</h1>
+    <p>DAPICOMBAT - это семейство кликеров, с котиком Dapi! А это просто WEB версия в браузере.</p>
+    <p>Остальные версии вы можете найти в нашем Telegram канале, кнопки ниже!</p>
 
-  <p>DAPICOMBAT - это семейство кликеров, с котиком Dapi! А это просто WEB версия в браузере.</p>
-  <p>Остальные версии вы можете найти в нашем Telegram канале, кнопки ниже!</p>
+    <div class="clicker-area">
+      <button class="clicker-button"></button>
+      <div id="score">0</div>
+    </div>
 
-  <div class="clicker-area">
-    <button class="clicker-button"></button>
-    <div id="score">0</div>
-  </div>
-
-  <div class="buttons-container">
-    <a href="https://t.me/dapicombat" class="telegram-button">Подписаться на Telegram</a>
-    <a href="https://github.com/justcwertyf" class="github-button">Репозитории Github</a>
+    <div class="buttons-container">
+      <a href="https://t.me/dapicombat" class="telegram-button">Подписаться на Telegram</a>
+      <a href="https://github.com/justcwertyf" class="github-button">Репозитории Github</a>
+    </div>
   </div>
 
   <script>
@@ -115,6 +134,5 @@
       scoreElement.textContent = score;
     });
   </script>
-
 </body>
 </html>
