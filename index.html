@@ -115,6 +115,31 @@
         font-size: 1.5em;
       }
     }
+
+    / Анимация покачивания /
+    .clicker-button.shake-left {
+      animation: shake-left 0.3s ease-in-out;
+    }
+
+    .clicker-button.shake-right {
+      animation: shake-right 0.3s ease-in-out;
+    }
+
+    @keyframes shake-left {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(0); }
+      75% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes shake-right {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(5px); }
+      50% { transform: translateX(0); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
   </style>
 </head>
 <body>
@@ -143,25 +168,4 @@
       const cookieArr = document.cookie.split(';');
       for (let i = 0; i < cookieArr.length; i++) {
         let cookiePair = cookieArr[i].trim();
-        if (cookiePair.startsWith(name + '=')) {
-          return cookiePair.substring(name.length + 1);
-        }
-      }
-      return null;
-    }
-
-    function setCookie(name, value) {
-      document.cookie = `${name}=${value}; path=/`;
-    }
-
-    scoreElement.textContent = score;
-
-    clickerButton.addEventListener('click', () => {
-      score++;
-      setCookie('score', score); 
-      scoreElement.textContent = score;
-    });
-  </script>
-
-</body>
-</html>
+        if (cookiePair.startsWith(nam
