@@ -18,46 +18,39 @@
     }
 
     h1 {
-      font-size: 4em;
-      margin-bottom: 20px;
+      font-size: 3em; / Сделаем заголовок адаптивным /
+      margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+      font-size: 1em; / Сделаем текст адаптивным /
+      margin-bottom: 20px;
+      text-align: center; / Центрируем текст /
     }
 
-    .telegram-button {
+    .telegram-button, .github-button {
       display: inline-block;
       padding: 10px 20px;
-      background-color: #2CA5E0;
+      background-color: #2CA5E0; / Telegram /
       color: #fff;
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s ease;
-    }
-
-    .telegram-button:hover {
-      background-color: #2188D8;
+      margin: 10px; / Добавим отступ между кнопками /
     }
 
     .github-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #222;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
+      background-color: #222; / GitHub /
     }
 
-    .github-button:hover {
+    .telegram-button:hover, .github-button:hover {
       background-color: #333;
     }
 
     .clicker-area {
-      width: 300px;
-      height: 300px;
+      width: 80%; / Зададим ширину в процентах для адаптивности /
+      max-width: 300px; / Максимальная ширина /
+      height: 250px;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 15px;
       margin: 30px auto 50px auto;
@@ -68,8 +61,10 @@
     }
 
     .clicker-button {
-      width: 100px;
-      height: 100px;
+      width: 80%; / Зададим ширину в процентах для адаптивности /
+      max-width: 100px; / Максимальная ширина /
+      height: 80%; / Зададим высоту в процентах для адаптивности /
+      max-height: 100px; / Максимальная высота /
       background-image: url('button.jpg');
       background-size: cover;
       border: none;
@@ -85,6 +80,14 @@
       font-size: 2em;
       color: white;
       margin-top: 20px;
+    }
+
+    .buttons-container {
+      display: flex; / Используем flexbox для выравнивания кнопок /
+      flex-direction: column; / Кнопки в столбец /
+      width: 80%; / Ширина в процентах /
+      max-width: 300px; / Максимальная ширина /
+      margin: 0 auto; / Автоматический отступ по краям /
     }
   </style>
 </head>
