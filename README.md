@@ -1,4 +1,4 @@
-`*DAPICOMBAT web sources`
+`DAPICOMBAT web sources`
 
 exported_script.js и exported_style.css не используются в сайте.
 Это просто вырезаный код на css и js из index.html, дабы ВАМ было удобнее изучать код.
